@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact & Support – Fixif.ai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Contact the Fixif.ai team for support, partnership, or pilot access for your workshop or fleet."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <div class="container header-inner">
+     
+        <a href="index.html" class="brand">
+            <img
+              src="fixif.jpg"
+              alt="Fixif.ai logo"
+              class="brand-logo"
+            />
+            <div class="brand-text">
+              <span class="brand-name">Fixif.ai</span>
+              <span class="brand-tagline">Vehicle issue intake &amp; triage</span>
+            </div>
+          </a>
+
+          
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link is-active">Contact</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="register.html" class="nav-link">Learn More</a>
+
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+          <span class="theme-toggle-icon">🌙</span>
+          <span class="theme-toggle-label">Dark mode</span>
+        </button>
+        <button
+          class="nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container contact-layout">
+        <div>
+          <header class="section-header">
+            <p class="section-kicker">Contact &amp; support</p>
+            <h1 class="section-title">Let’s talk about your vehicles.</h1>
+            <p class="section-subtitle">
+              Whether you’re a driver, workshop, or fleet operator, we’d love to hear how
+              Fixif.ai can help. Share a bit about your setup and we’ll follow up.
+            </p>
+          </header>
+
+          <div class="card">
+            <h3 class="card-title">Support &amp; inquiries</h3>
+            <p class="card-text">
+              For support, partnerships, or pilot programs, reach us at:
+            </p>
+            <p class="card-text" style="margin-top: 0.6rem;">
+              <strong>Email:</strong> support@fixifai.example<br />
+              <strong>Hours:</strong> Monday–Friday, 9:00–17:00 (PH time)
+            </p>
+            <p class="card-text" style="margin-top: 0.6rem;">
+              We aim to respond within one business day.
+            </p>
+          </div>
+        </div>
+        <div class="card contact-card">
+          <form class="form">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Juan Dela Cruz" />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="role">I am a</label>
+                <input id="role" type="text" placeholder="Driver, shop owner, fleet manager..." />
+              </div>
+              <div class="form-field">
+                <label for="cars">Number of vehicles</label>
+                <input id="cars" type="number" min="1" placeholder="e.g., 1, 10, 50" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="message">How can we help?</label>
+              <textarea
+                id="message"
+                rows="4"
+                placeholder="Tell us about your current car, workshop, or fleet setup and where Fixif.ai could help."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Send message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Fixif.ai · GGH Software. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="faq.html#privacy">Privacy</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="theme.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

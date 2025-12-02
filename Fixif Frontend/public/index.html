@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fixif.ai – Vehicle AI Diagnosis Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Fixif.ai exists to revolutionize auto repair by bringing AI-powered intelligence to every car and every shop, making vehicle care faster, smarter, and universally accessible."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="page">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img
+          src="fixif.jpg"
+          alt="Fixif.ai logo"
+          class="brand-logo"
+        />
+        <div class="brand-text">
+          <span class="brand-name">Fixif.ai</span>
+          <!-- CHANGED: tagline -->
+          <span class="brand-tagline">AI-Powered Auto Repair Assistant</span>
+        </div>
+      </a>
+
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link is-active">Home</a>
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <!-- CHANGED: "Get Started" -> "Learn More" and link to how-it-works -->
+        <a href="how-it-works.html" class="nav-link">Learn More</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          data-theme-toggle
+          aria-pressed="false"
+        >
+          <span class="theme-toggle-icon">🌙</span>
+          <span class="theme-toggle-label">Dark mode</span>
+        </button>
+        <button
+          class="nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="hero-badge">AI made only for vehicles</div>
+
+          <!-- CHANGED: hero title text -->
+          <h1 class="hero-title">
+            Fixing Cars <span>Smarter with AI</span>
+          </h1>
+
+          <!-- CHANGED: hero paragraph copy -->
+          <p class="hero-text">
+            Fixif.ai exists to revolutionize auto repair by bringing AI-powered
+            intelligence to every car and every shop, making vehicle care faster,
+            smarter, and universally accessible.
+          </p>
+
+          <div class="hero-actions">
+            <!-- CHANGED: "Start with How It Works" -> "Schedule a Demo" + calendar link -->
+            <a href="https://cal.com/your-calendar-link" class="btn btn-primary">
+              Schedule a Demo
+            </a>
+            <a href="contact.html" class="btn btn-ghost">
+              Talk to our team
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <div class="hero-stat-label">Response time</div>
+              <div class="hero-stat-value">&lt; 3 seconds</div>
+            </div>
+            <div>
+              <div class="hero-stat-label">Brands covered</div>
+              <div class="hero-stat-value">50+ car makes</div>
+            </div>
+            <div>
+              <div class="hero-stat-label">Availability</div>
+              <div class="hero-stat-value">24/7 AI guidance</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-visual">
+          <div class="hero-visual-inner">
+            <div class="hero-car"></div>
+            <div class="hero-overlay-card">
+              <strong>Example conversation</strong>
+              <p style="margin-top: 0.3rem;">
+                <strong>Driver:</strong> "My check engine light is on and the car
+                shakes at idle."
+              </p>
+              <p>
+                <strong>Fixif.ai:</strong> "Let’s narrow it down. Does the
+                vibration get worse in Drive or when the A/C is on?"
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Feature highlights -->
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">Why Fixif.ai</p>
+          <h2 class="section-title">Built only for automotive use cases.</h2>
+          <p class="section-subtitle">
+            No generic chatbot answers. Fixif.ai is tuned for one job: helping you
+            make better car decisions, from first symptom to workshop hand-off.
+          </p>
+        </header>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3 class="card-title">For everyday drivers</h3>
+            <p class="card-text">
+              Explain any noise, light, or feel in simple language so you know if
+              it’s safe to drive and what to ask a mechanic.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">For workshops</h3>
+            <p class="card-text">
+              Triage customer complaints faster, standardize checklists, and give
+              clear follow-ups your customers understand.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">For fleets</h3>
+            <p class="card-text">
+              Spot patterns across vehicles, reduce downtime, and help drivers log
+              better incident reports on the road.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Fixif.ai · GGH Software. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="faq.html#privacy">Privacy</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="theme.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

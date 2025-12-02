@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>How fixif.ai Works – fixif.ai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="See how fixif.ai guides drivers, shops, and fleets from symptoms to clear next steps."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img
+          src="fixif.jpg"
+          alt="fixif.ai logo"
+          class="brand-logo"
+        />
+        <div class="brand-text">
+          <span class="brand-name">fixif.ai</span>
+          <span class="brand-tagline">Vehicle issue intake &amp; triage</span>
+        </div>
+      </a>
+
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="how-it-works.html" class="nav-link is-active">How It Works</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="register.html" class="nav-link">Learn More</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+          <span class="theme-toggle-icon">🌙</span>
+          <span class="theme-toggle-label">Dark mode</span>
+        </button>
+        <button
+          class="nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- How it works steps -->
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">How it works</p>
+          <h1 class="section-title">From symptom to smart next step.</h1>
+          <p class="section-subtitle">
+            fixif.ai doesn’t replace a mechanic. It helps you describe problems
+            clearly, understand likely causes, and choose the right next move.
+          </p>
+        </header>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="step-number">Step 1</div>
+            <h2 class="card-title">Describe what’s happening.</h2>
+            <p class="card-text">
+              In your own words, share the symptom: new sound, dashboard light,
+              vibration, smell, or change in performance. Add photos or OBD-II
+              codes if you have them.
+            </p>
+          </div>
+          <div class="card">
+            <div class="step-number">Step 2</div>
+            <h2 class="card-title">fixif.ai structures the problem.</h2>
+            <p class="card-text">
+              The AI asks targeted follow-up questions and maps your description
+              to possible systems involved: engine, suspension, brakes, electrical,
+              or others.
+            </p>
+          </div>
+          <div class="card">
+            <div class="step-number">Step 3</div>
+            <h2 class="card-title">You get a clear action plan.</h2>
+            <p class="card-text">
+              Based on risk and urgency, fixif.ai suggests what to check at home,
+              whether it’s safe to drive, and what to tell your shop or fleet
+              manager.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: For everyday drivers -->
+    <section class="section">
+      <div class="container grid-2">
+        <div>
+          <header class="section-header">
+            <p class="section-kicker">For everyday drivers</p>
+            <h2 class="section-title">Instant answers when something feels off.</h2>
+          </header>
+          <p class="section-subtitle">
+            Whenever your car makes a weird sound, shows a warning light, or just doesn’t feel right,
+            fixif.ai helps you figure out what’s going on instantly. Just describe the issue or upload a
+            photo or sound, and fixif.ai gives you clear explanations, possible causes, and next steps.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Typical output for a driver</h3>
+          <ul style="margin: 0.2rem 0 0; padding-left: 1.1rem; color: var(--text-muted); font-size: 0.92rem;">
+            <li>Simple explanation of what the issue might be</li>
+            <li>List of possible causes, from minor to severe</li>
+            <li>Whether it’s safe to keep driving or not</li>
+            <li>What you can quickly check on your own</li>
+            <li>What to say when you arrive at the shop</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- For shops & fleets -->
+    <section class="section">
+      <div class="container grid-2">
+        <div>
+          <header class="section-header">
+            <p class="section-kicker">For shops &amp; fleets</p>
+            <h2 class="section-title">Plug fixif.ai into your existing flow.</h2>
+          </header>
+          <p class="section-subtitle">
+            Use fixif.ai as an intake assistant, not a replacement. Drivers or
+            front-desk staff log symptoms; technicians review structured summaries
+            and recommended checklists.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Typical output for a shop</h3>
+          <ul style="margin: 0.2rem 0 0; padding-left: 1.1rem; color: var(--text-muted); font-size: 0.92rem;">
+            <li>Plain language summary of the customer issue</li>
+            <li>Possible systems involved and severity level</li>
+            <li>Suggested inspection checklist</li>
+            <li>Questions to confirm with the driver</li>
+            <li>Notes to include on the job card</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> fixif.ai · GGH Software. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="faq.html#privacy">Privacy</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="theme.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

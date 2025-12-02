@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>FAQ & Privacy – Fixif.ai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Frequently asked questions and a quick overview of how Fixif.ai handles your data."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="brand">
+            <img
+              src="fixif.jpg"
+              alt="Fixif.ai logo"
+              class="brand-logo"
+            />
+            <div class="brand-text">
+              <span class="brand-name">Fixif.ai</span>
+              <span class="brand-tagline">Vehicle issue intake &amp; triage</span>
+            </div>
+          </a>
+          
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="faq.html" class="nav-link is-active">FAQ</a>
+        <a href="register.html" class="nav-link">Learn More</a>
+
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+          <span class="theme-toggle-icon">🌙</span>
+          <span class="theme-toggle-label">Dark mode</span>
+        </button>
+        <button
+          class="nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">FAQ</p>
+          <h1 class="section-title">Frequently asked questions.</h1>
+          <p class="section-subtitle">
+            A quick overview of how Fixif.ai fits into your real-world car decisions.
+          </p>
+        </header>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Is Fixif.ai a replacement for a mechanic?</summary>
+            <p>
+              No. Fixif.ai helps you describe issues clearly, understand possible
+              causes and risk, and prepare better conversations with your mechanic
+              or fleet team. It’s a guidance layer, not a replacement for expert
+              inspection.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can Fixif.ai tell me if it’s safe to keep driving?</summary>
+            <p>
+              Fixif.ai can provide a risk-based perspective (low, medium, high)
+              based on your description, but it can’t see or touch the car. When
+              in doubt, we always recommend erring on the safe side.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Which car brands does Fixif.ai support?</summary>
+            <p>
+              Fixif.ai supports common passenger vehicles first and is expanding
+              to light commercial and fleet vehicles. It focuses on patterns and
+              symptoms rather than brand-specific marketing terms.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can workshops or fleets integrate Fixif.ai into their systems?</summary>
+            <p>
+              Yes. We’re developing APIs and integrations so workshop CRMs and
+              fleet management tools can send symptoms, receive structured
+              summaries, and log AI-assisted guidance alongside existing data.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy">
+      <div class="container grid-2">
+        <div>
+          <header class="section-header">
+            <p class="section-kicker">Privacy &amp; data</p>
+            <h2 class="section-title">How we handle your information.</h2>
+          </header>
+          <p class="section-subtitle">
+            Fixif.ai is built to help with car problems—not to harvest personal
+            details. We only collect what we need to run the product and improve it
+            responsibly.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Summary (not legal text)</h3>
+          <ul style="margin: 0.35rem 0 0; padding-left: 1.1rem; color: var(--text-muted); font-size: 0.92rem;">
+            <li>We store conversations to improve guidance and product quality.</li>
+            <li>We avoid collecting unnecessary identifiers where possible.</li>
+            <li>You can request deletion of your account-linked data.</li>
+            <li>We do not sell your data to third-party advertisers.</li>
+          </ul>
+          <p class="card-text" style="margin-top: 0.7rem;">
+            For full legal terms and privacy wording, your final production site
+            should include a dedicated, lawyer-reviewed Privacy Policy and Terms of
+            Use.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Fixif.ai · GGH Software. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="#privacy">Privacy</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="theme.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

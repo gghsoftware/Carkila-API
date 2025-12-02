@@ -1,0 +1,750 @@
+/* ===========================
+   THEME TOKENS (BLACK & WHITE)
+   =========================== */
+
+   html[data-theme="light"] {
+    --bg: #f4f4f5;
+    --bg-alt: #ffffff;
+    --bg-soft: #e5e5e5;
+    --border-subtle: rgba(148, 148, 148, 0.4);
+
+    --text: #111111;
+    --text-muted: #4b4b4b;
+    --text-soft: #9f9f9f;
+    --text-on-accent: #f9f9f9;
+
+    --accent: #2f2f2f;
+    --accent-soft: rgba(47, 47, 47, 0.08);
+    --accent-strong: #000000;
+
+    --shadow-soft: 0 18px 45px rgba(15, 15, 15, 0.16);
+    --shadow-elevated: 0 22px 55px rgba(15, 15, 15, 0.25);
+
+    --header-blur-bg: rgba(249, 249, 249, 0.94);
+    --hero-gradient: radial-gradient(circle at top, #e5e5e5 0%, #f9f9f9 38%, #f9f9f9 100%);
+}
+
+html[data-theme="dark"] {
+    --bg: #050505;
+    --bg-alt: #050505;
+    --bg-soft: #111111;
+    --border-subtle: rgba(148, 148, 148, 0.35);
+
+    --text: #f5f5f5;
+    --text-muted: #d4d4d4;
+    --text-soft: #9f9f9f;
+    --text-on-accent: #050505;
+
+    --accent: #e5e5e5;
+    --accent-soft: rgba(229, 229, 229, 0.06);
+    --accent-strong: #ffffff;
+
+    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.9);
+    --shadow-elevated: 0 24px 65px rgba(0, 0, 0, 1);
+
+    --header-blur-bg: rgba(5, 5, 5, 0.92);
+    --hero-gradient: radial-gradient(circle at top, #050505 0%, #050505 40%, #050505 100%);
+}
+
+/* Fallback if JS hasn't run yet (match dark mode) */
+html {
+    --bg: #050505;
+    --bg-alt: #050505;
+    --bg-soft: #111111;
+    --border-subtle: rgba(148, 148, 148, 0.35);
+
+    --text: #f5f5f5;
+    --text-muted: #d4d4d4;
+    --text-soft: #9f9f9f;
+    --text-on-accent: #050505;
+
+    --accent: #e5e5e5;
+    --accent-soft: rgba(229, 229, 229, 0.06);
+    --accent-strong: #ffffff;
+
+    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.9);
+    --shadow-elevated: 0 24px 65px rgba(0, 0, 0, 1);
+
+    --header-blur-bg: rgba(5, 5, 5, 0.92);
+    --hero-gradient: radial-gradient(circle at top, #050505 0%, #050505 40%, #050505 100%);
+}
+
+:root {
+    --radius-lg: 1.25rem;
+    --radius-md: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-pill: 999px;
+
+    --header-height: 72px;
+    --content-max-width: 1120px;
+}
+
+/* ===========================
+   GLOBAL
+   =========================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* Basic typography */
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+p {
+    margin: 0;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+}
+
+/* Layout helpers */
+
+.container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===========================
+   HEADER & NAV
+   =========================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(18px);
+    background: var(--header-blur-bg);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.header-inner {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+/* Brand */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+}
+
+.brand-name {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+}
+
+.brand-tagline {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Nav */
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-muted);
+    position: relative;
+    padding-bottom: 0.2rem;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    width: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--accent), var(--accent-strong));
+    transition: width 0.16s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.is-active {
+    color: var(--accent-strong);
+}
+
+.nav-link.is-active::after {
+    width: 100%;
+}
+
+/* Header actions */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Theme toggle */
+
+.theme-toggle {
+    border-radius: var(--radius-pill);
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text);
+}
+
+.theme-toggle-icon,
+.theme-toggle-label {
+    color: inherit;
+}
+
+/* Force pure white text in dark mode */
+html[data-theme="dark"] .theme-toggle {
+    color: #ffffff;
+}
+
+.theme-toggle-icon {
+    font-size: 0.9rem;
+}
+
+/* Mobile nav toggle */
+
+.nav-toggle {
+    display: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-soft);
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-toggle span {
+    width: 16px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--text-muted);
+}
+
+/* ===========================
+   SECTIONS
+   =========================== */
+
+main {
+    flex: 1;
+}
+
+/* Hero (Home) */
+
+.hero {
+    background: var(--hero-gradient);
+    position: relative;
+    overflow: hidden;
+    padding: 4.5rem 0 4rem;
+}
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+.hero-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent-strong);
+    margin-bottom: 0.75rem;
+}
+
+.hero-title {
+    font-size: clamp(2.4rem, 4vw, 3.1rem);
+    margin-bottom: 0.75rem;
+}
+
+.hero-title span {
+    color: var(--accent-strong);
+}
+
+.hero-text {
+    color: var(--text-muted);
+    max-width: 34rem;
+    margin-bottom: 1.35rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--text-soft);
+}
+
+.hero-stat-label {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.7rem;
+    color: var(--text-soft);
+}
+
+.hero-stat-value {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Hero visual */
+
+.hero-visual {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-elevated);
+    padding: 1rem;
+    background: radial-gradient(circle at top, var(--accent-soft), var(--bg-alt));
+}
+
+.hero-visual-inner {
+    border-radius: 0.9rem;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(
+        to bottom right,
+        rgba(0, 0, 0, 0.96),
+        rgba(0, 0, 0, 0.92)
+    );
+}
+
+/* Monochrome car image background */
+.hero-car {
+    height: 230px;
+    background-image: url("https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(1) contrast(1.05);
+}
+
+.hero-overlay-card {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    border-radius: 0.75rem;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(148, 148, 148, 0.6);
+    padding: 0.8rem 0.9rem;
+    max-width: 260px;
+    font-size: 0.8rem;
+    color: #f3f3f3;
+}
+
+/* Generic section */
+
+.section {
+    padding: 2.4rem 0; /* tighter than default 3.5rem */
+}
+
+.section-header {
+    margin-bottom: 2rem;
+}
+
+.section-kicker {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent-strong);
+    margin-bottom: 0.35rem;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+    max-width: 36rem;
+    color: var(--text-muted);
+}
+
+/* Section helpers (used heavily on About) */
+
+.section--muted {
+    background: var(--bg-soft);
+}
+
+.section--border-top {
+    border-top: 1px solid var(--border-subtle);
+}
+
+/* Extra tightening for muted / bordered sections */
+.section.section--muted,
+.section.section--border-top {
+    padding: 2rem 0;
+}
+
+.section.section--muted .section-header,
+.section.section--border-top .section-header {
+    margin-bottom: 1.2rem;
+}
+
+/* Cards & grids */
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-alt);
+    padding: 1.2rem 1.25rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Image-style cards (used on About images) */
+.card--image {
+    padding: 0;
+    overflow: hidden;
+}
+
+.card--image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) contrast(1.05);
+}
+
+/* Make cards proportional / equal height inside grids */
+.grid-3,
+.grid-2 {
+    align-items: stretch;
+}
+
+/* For text cards, keep last element pushed down nicely */
+.grid-3 > .card:not(.card--image) p:last-child,
+.grid-3 > .card:not(.card--image) ul:last-child,
+.grid-2 > .card:not(.card--image) p:last-child,
+.grid-2 > .card:not(.card--image) ul:last-child {
+    margin-top: auto;
+}
+
+.card-title {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+.card-text {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+/* Steps (How it works) */
+
+.step-number {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--accent-strong);
+    margin-bottom: 0.4rem;
+}
+
+/* Buttons */
+
+.btn {
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-subtle);
+    padding: 0.6rem 1.4rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    background: var(--bg-alt);
+    color: var(--text);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--accent), var(--accent-strong));
+    border-color: transparent;
+    color: var(--text-on-accent);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.32);
+}
+
+.btn-ghost {
+    background: var(--bg-alt);
+}
+
+/* Contact form */
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 2.5rem;
+}
+
+.contact-card {
+    padding: 1.5rem 1.6rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 0.9rem;
+}
+
+.form-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-soft);
+}
+
+input,
+textarea {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    padding: 0.55rem 0.7rem;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.92rem;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+.brand-logo {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
+  
+/* FAQ */
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.faq-item {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-alt);
+    padding: 0.75rem 0.9rem;
+}
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    float: right;
+    font-weight: 400;
+}
+
+.faq-item[open] summary::after {
+    content: "–";
+}
+
+.faq-item p {
+    margin-top: 0.5rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+/* Footer */
+
+.site-footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 1.6rem 0;
+    font-size: 0.8rem;
+    color: var(--text-soft);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 960px) {
+    .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero-visual {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-2,
+    .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .site-nav {
+        position: absolute;
+        inset: var(--header-height) 0 auto 0;
+        background: var(--header-blur-bg);
+        border-bottom: 1px solid var(--border-subtle);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.8rem 1.5rem 1rem;
+        transform: translateY(-140%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.16s ease-out, opacity 0.16s ease-out;
+    }
+
+    .site-nav.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    .header-inner {
+        padding-inline: 1.2rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+}

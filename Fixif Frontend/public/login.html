@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fixif.ai · Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* ===========================
+       THEME TOKENS (BLACK & WHITE)
+       =========================== */
+
+    html[data-theme="light"] {
+      --bg: #ffffff;
+      --bg-alt: #ffffff;
+      --bg-soft: #f4f4f5;
+      --border-subtle: rgba(148, 148, 148, 0.4);
+
+      --text: #111111;
+      --text-muted: #4b4b4b;
+      --text-soft: #9f9f9f;
+      --text-on-accent: #f9f9f9;
+
+      --accent: #2f2f2f;
+      --accent-soft: rgba(47, 47, 47, 0.08);
+      --accent-strong: #000000;
+
+      --shadow-soft: 0 18px 45px rgba(15, 15, 15, 0.1);
+      --shadow-elevated: 0 22px 55px rgba(15, 15, 15, 0.16);
+
+      --header-blur-bg: rgba(255, 255, 255, 0.96);
+    }
+
+    html[data-theme="dark"] {
+      --bg: #050505;
+      --bg-alt: #050505;
+      --bg-soft: #111111;
+      --border-subtle: rgba(148, 148, 148, 0.35);
+
+      --text: #f5f5f5;
+      --text-muted: #d4d4d4;
+      --text-soft: #9f9f9f;
+      --text-on-accent: #050505;
+
+      --accent: #e5e5e5;
+      --accent-soft: rgba(229, 229, 229, 0.06);
+      --accent-strong: #ffffff;
+
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.9);
+      --shadow-elevated: 0 24px 65px rgba(0, 0, 0, 1);
+
+      --header-blur-bg: rgba(5, 5, 5, 0.92);
+    }
+
+    :root {
+      --radius-lg: 1.25rem;
+      --radius-md: 0.75rem;
+      --radius-pill: 999px;
+
+      --header-height: 72px;
+      --content-max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg); /* ✅ now follows theme (white in light mode) */
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: var(--content-max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    /* ===========================
+       HEADER
+       =========================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: var(--header-blur-bg);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .brand-logo {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.12rem;
+    }
+
+    .brand-name {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+    }
+
+    .brand-tagline {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .header-right {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .header-right a {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+    }
+
+    .theme-toggle {
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text);
+    }
+
+    .theme-toggle-icon,
+    .theme-toggle-label {
+      color: inherit;
+    }
+
+    html[data-theme="dark"] .theme-toggle {
+      color: #ffffff;
+    }
+
+    .theme-toggle-icon {
+      font-size: 0.9rem;
+    }
+
+    /* ===========================
+       AUTH LAYOUT
+       =========================== */
+
+    .auth-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2.5rem;
+      max-width: 960px;
+      width: 100%;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .auth-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+      }
+
+      main {
+        padding-top: 2rem;
+      }
+    }
+
+    .auth-hero-title {
+      font-size: clamp(2rem, 3vw, 2.4rem);
+      margin: 0 0 0.6rem;
+      letter-spacing: 0.03em;
+    }
+
+    .auth-hero-title span {
+      color: var(--accent-strong);
+    }
+
+    .auth-hero-text {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 26rem;
+      line-height: 1.7;
+    }
+
+    .auth-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 0.7rem;
+    }
+
+    .auth-meta {
+      margin-top: 1.4rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .auth-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-alt); /* ✅ follows theme (white in light mode, dark in dark mode) */
+      box-shadow: var(--shadow-soft);
+      padding: 1.6rem 1.7rem 1.7rem;
+    }
+
+    .auth-card h2 {
+      margin: 0 0 0.3rem;
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+    }
+
+    .auth-card p {
+      margin: 0 0 1.2rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 0.9rem;
+    }
+
+    label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    input {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      padding: 0.55rem 0.7rem;
+      background: var(--bg-soft);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary {
+      width: 100%;
+      border-radius: var(--radius-pill);
+      border: none;
+      padding: 0.7rem 1.6rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: linear-gradient(to right, var(--accent), var(--accent-strong));
+      color: var(--text-on-accent);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+      margin-top: 0.35rem;
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .status {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      min-height: 1.1em;
+      color: var(--text-soft);
+    }
+
+    .status.error {
+      color: #b91c1c;
+    }
+
+    .status.success {
+      color: #15803d;
+    }
+
+    .auth-footer {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    .auth-footer a {
+      color: var(--accent-strong);
+      font-weight: 500;
+    }
+
+    footer {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      padding: 0.9rem 1.5rem 1.4rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">
+          <img src="fixif.jpg" alt="Fixif.ai logo" class="brand-logo" />
+          <div class="brand-text">
+            <div class="brand-name">FIXIF.AI</div>
+            <div class="brand-tagline">Vehicle issue intake &amp; triage</div>
+          </div>
+        </a>
+
+        <div class="header-right">
+          <button class="theme-toggle" id="theme-toggle" type="button">
+            <span class="theme-toggle-icon" id="theme-toggle-icon">☀️</span>
+            <span class="theme-toggle-label" id="theme-toggle-label">Light</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="auth-layout">
+        <section>
+          <div class="auth-badge">Workshop access · secure login</div>
+          <h1 class="auth-hero-title">
+            Sign in to your <span>Fixif.ai</span> workspace.
+          </h1>
+          <p class="auth-hero-text">
+            Only authorized users can access the AI intake assistant. Use your registered
+            email and password to continue creating mechanic-ready diagnosis plans.
+          </p>
+          <p class="auth-meta">
+            Your data stays linked to this account – perfect for service advisors, workshop owners,
+            and front-desk teams.
+          </p>
+        </section>
+
+        <section>
+          <div class="auth-card">
+            <h2>Log in</h2>
+            <p>Enter your credentials to access the AI assistant.</p>
+
+            <form id="loginForm">
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="you@workshop.com" />
+              </div>
+              <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="••••••••" />
+              </div>
+              <button type="submit" class="btn-primary" id="loginBtn">
+                Log in
+              </button>
+              <div id="status" class="status"></div>
+            </form>
+
+            <div class="auth-footer">
+              No account yet?
+              <a href="register.html">Create one</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Fixif.ai · GGH Software.
+    </footer>
+  </div>
+
+  <script>
+    // ===== THEME TOGGLE =====
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeLabel = document.getElementById('theme-toggle-label');
+    const themeIcon = document.getElementById('theme-toggle-icon');
+
+    const savedTheme = localStorage.getItem('fixif-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      root.setAttribute('data-theme', savedTheme);
+    } else {
+      root.setAttribute('data-theme', 'light'); // ✅ default is light (white bg, dark text)
+    }
+
+    function updateThemeUI() {
+      const current = root.getAttribute('data-theme') || 'light';
+      if (current === 'dark') {
+        themeLabel.textContent = 'Dark';
+        themeIcon.textContent = '🌙';
+      } else {
+        themeLabel.textContent = 'Light';
+        themeIcon.textContent = '☀️';
+      }
+    }
+    updateThemeUI();
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('fixif-theme', nextTheme);
+        updateThemeUI();
+      });
+    }
+
+    // ===== LOGIN LOGIC =====
+    const API_BASE_URL = 'http://localhost:4000';
+    console.log('Using API_BASE_URL:', API_BASE_URL);
+
+    const form = document.getElementById('loginForm');
+    const statusEl = document.getElementById('status');
+    const loginBtn = document.getElementById('loginBtn');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function setStatus(message, type) {
+      statusEl.textContent = message || '';
+      statusEl.className = 'status';
+      if (type) statusEl.classList.add(type);
+    }
+
+    // If already logged in, go straight to chat
+    (function autoRedirectIfLoggedIn() {
+      const token = localStorage.getItem('fixifToken');
+      if (token) {
+        window.location.href = 'chat.html';
+      }
+    })();
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setStatus('', '');
+      loginBtn.disabled = true;
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        setStatus('Please enter your email and password.', 'error');
+        loginBtn.disabled = false;
+        return;
+      }
+
+      try {
+        const res = await fetch(API_BASE_URL + '/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+        });
+
+        const raw = await res.text();
+        let data;
+
+        try {
+          data = JSON.parse(raw);
+        } catch (jsonErr) {
+          console.error('❌ Failed to parse JSON from /api/auth/login. Raw response:', raw);
+          setStatus('Server responded with invalid JSON.', 'error');
+          loginBtn.disabled = false;
+          return;
+        }
+
+        if (!res.ok) {
+          setStatus(data.error || 'Login failed.', 'error');
+          loginBtn.disabled = false;
+          return;
+        }
+
+        localStorage.setItem('fixifToken', data.token);
+        localStorage.setItem('fixifUser', JSON.stringify(data.user || {}));
+
+        setStatus('Login successful. Redirecting…', 'success');
+        setTimeout(() => {
+          window.location.href = 'chat.html';
+        }, 600);
+      } catch (err) {
+        console.error('❌ Network error during login:', err);
+        setStatus('Network error. Please try again.', 'error');
+      } finally {
+        loginBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
